@@ -15,16 +15,22 @@ public class Subject {
         this.teacher = person;
     }
 
-   /* public String getAllStudentsName(){
+    public StringBuilder getAllStudentsName(){
+        StringBuilder stringBuilder = new StringBuilder();
+
         for(Person student : listOfStudent)
+            if(student != null)
+                stringBuilder.append(student.getName() + " ");
+
+        return stringBuilder;
     }
 
-    */
 
     public String toString(){
         String string = title + ", teacher: " + teacher.getName() + "\n"
-                + "Students: "; //getAllStudentsName();
-        return string;
+                + "Students: ";
+
+        return string+getAllStudentsName();
     }
 
     public void addStudent(Student student) throws TooManyStudentsException{
